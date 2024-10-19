@@ -11,7 +11,7 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/LeeHoang123/luanvan.git'
+                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/tranhuyhoang23032002/demo-CD.git'
              }
          }
          stage("Update the Deployment Tags") {
@@ -32,7 +32,7 @@ pipeline {
                     git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/LeeHoang123/luanvan.git main"
+                    sh "git push https://github.com/tranhuyhoang23032002/demo-CD.git"
                 }
             }
          }
